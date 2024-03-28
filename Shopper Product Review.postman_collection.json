@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "edebf4bc-bfe6-4602-8a36-f31a668bed05",
+		"name": "Shopper Product Review",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33643733",
+		"_collection_link": "https://www.postman.com/spacecraft-specialist-7984735/workspace/shopperstack/collection/33643733-edebf4bc-bfe6-4602-8a36-f31a668bed05?action=share&source=collection_link&creator=33643733"
+	},
+	"item": [
+		{
+			"name": "Add a review to delivered product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dateTime\": \"2024-03-22T13:27:37.874Z\",\r\n  \"description\": \"Very Good\",\r\n  \"heading\": \"string\",\r\n  \"rating\": 5.0,\r\n  \"shopperId\": 55906,\r\n  \"shopperName\": \"Aditi Bansode\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/reviews/?productId=8",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"reviews",
+						""
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the reviews of a product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/reviews/{{productId}}",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"reviews",
+						"{{productId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an added review",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dateTime\": \"2024-03-22T13:46:40.212Z\",\r\n  \"description\": \"Good\",\r\n  \"heading\": \"Very Good\",\r\n  \"rating\": 4.5,\r\n  \"shopperId\": 55906,\r\n  \"shopperName\": \"Aditi Bansode\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/reviews/{{reviewId}}?productId=8",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"reviews",
+						"{{reviewId}}"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an added review",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTtoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/reviews/{{reviewId}}?productId=8",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"reviews",
+						"{{reviewId}}"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
